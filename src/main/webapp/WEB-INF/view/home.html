@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <title>The World Clock</title>
+    <style type="text/css">
+        select{
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>Current Local Times Around the World</h2>
+<th:block th:if="${city}">
+    <h3 th:text="${city}"></h3>
+</th:block>
+<th:block th:if="${date}">
+    <h3 th:text="${date}"></h3>
+</th:block>
+
+<form th:action="@{/time}"  method="post">
+    <select name="city">
+        <option>Select a city</option>
+        <option value="Asia/Ho_Chi_Minh">Ho Chi Minh</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Asia/Hong_Kong">Hong Kong</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+        <option value="Asia/Seoul">Seoul</option>
+        <option value="Europe/London">London</option>
+        <option value="Europe/Madrid">Madrid</option>
+        <option value="America/New_York">New York</option>
+        <option value="Australia/Sydney">Sydney</option>
+        <option value="Argentina/Buenos_Aires">Buenos Aires</option>
+    </select>
+    <input type="submit" value="date">
+</form>
+</body>
+</html>
